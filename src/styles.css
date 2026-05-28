@@ -1,0 +1,87 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@import "@fontsource/geist/400.css";
+@import "@fontsource/geist/500.css";
+@import "@fontsource/geist/600.css";
+@import "@fontsource/geist/700.css";
+@import "@fontsource/geist-mono/400.css";
+@import "@fontsource/geist-mono/500.css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme {
+  --font-sans: "Geist", system-ui, sans-serif;
+  --font-mono: "Geist Mono", ui-monospace, monospace;
+
+  --color-bg: #080b16;
+  --color-card: #0f1422;
+  --color-emerald: #0dbe82;
+  --color-cyan: #18b4d4;
+  --color-rust: #e8703a;
+  --color-lime: #70a848;
+  --color-amber: #d4a853;
+  --color-txt: #e4e4e7;
+  --color-muted: #71717a;
+  --color-dim: #3f3f46;
+
+  --radius-sm: 3px;
+  --radius-md: 3px;
+  --radius-lg: 3px;
+  --radius-xl: 3px;
+  --radius-2xl: 3px;
+  --radius-3xl: 3px;
+
+  --color-background: var(--color-bg);
+  --color-foreground: var(--color-txt);
+  --color-border: rgba(255, 255, 255, 0.07);
+  --color-ring: var(--color-cyan);
+  --color-input: rgba(255, 255, 255, 0.07);
+  --color-primary: var(--color-emerald);
+  --color-primary-foreground: #08110d;
+  --color-secondary: var(--color-card);
+  --color-secondary-foreground: var(--color-txt);
+  --color-muted-foreground: var(--color-muted);
+  --color-accent: var(--color-cyan);
+  --color-accent-foreground: #06141a;
+  --color-card-foreground: var(--color-txt);
+  --color-popover: var(--color-card);
+  --color-popover-foreground: var(--color-txt);
+  --color-destructive: var(--color-rust);
+  --color-destructive-foreground: var(--color-txt);
+}
+
+@layer base {
+  * {
+    border-color: rgba(255, 255, 255, 0.07);
+    border-width: 0;
+  }
+  html, body {
+    background-color: var(--color-bg);
+    color: var(--color-txt);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  ::selection { background: var(--color-cyan); color: #06141a; }
+}
+
+@layer utilities {
+  .hairline { border-width: 0.5px; border-style: solid; border-color: rgba(255,255,255,0.07); }
+  .hairline-t { border-top-width: 0.5px; border-top-style: solid; border-top-color: rgba(255,255,255,0.07); }
+  .hairline-b { border-bottom-width: 0.5px; border-bottom-style: solid; border-bottom-color: rgba(255,255,255,0.07); }
+  .hairline-l { border-left-width: 0.5px; border-left-style: solid; border-left-color: rgba(255,255,255,0.07); }
+  .hairline-r { border-right-width: 0.5px; border-right-style: solid; border-right-color: rgba(255,255,255,0.07); }
+  .hairline-cyan { border-width: 0.5px; border-style: solid; border-color: rgba(24,180,212,0.35); }
+  .hairline-emerald { border-width: 0.5px; border-style: solid; border-color: rgba(13,190,130,0.35); }
+  .hairline-rust { border-width: 0.5px; border-style: solid; border-color: rgba(232,112,58,0.35); }
+  .hairline-amber { border-width: 0.5px; border-style: solid; border-color: rgba(212,168,83,0.35); }
+  .eyebrow { font-family: var(--font-mono); font-size: 11px; text-transform: uppercase; letter-spacing: 0.18em; color: var(--color-muted); }
+  .pulse-dot { box-shadow: 0 0 0 0 rgba(13,190,130,0.6); animation: pulseDot 2s infinite; }
+  @keyframes pulseDot {
+    0% { box-shadow: 0 0 0 0 rgba(13,190,130,0.6); }
+    70% { box-shadow: 0 0 0 8px rgba(13,190,130,0); }
+    100% { box-shadow: 0 0 0 0 rgba(13,190,130,0); }
+  }
+}
